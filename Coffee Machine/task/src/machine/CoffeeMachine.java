@@ -88,7 +88,7 @@ class Machine {
     }
 
     public String getInput() {
-        System.out.println("Write action (buy, fill, take):");
+        System.out.println("Write action (buy, fill, take, remaining, exit):");
         return sc.nextLine();
     }
 
@@ -164,11 +164,9 @@ public class CoffeeMachine {
 
         Machine machine = new Machine();
 
-        machine.info();
-
         String order;
-//        loop:
-//        while (true) {
+        loop:
+        while (true) {
             order = machine.getInput();
 
             switch (order) {
@@ -181,12 +179,12 @@ public class CoffeeMachine {
                 case "take":
                     machine.take();
                     break;
-//                case "exit":
-//                    break loop;
-//            }
-
+                case "remaining":
+                    machine.info();
+                    break;
+                case "exit":
+                    break loop;
+            }
         }
-
-        machine.info();
     }
 }
